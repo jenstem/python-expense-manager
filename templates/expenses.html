@@ -2,15 +2,35 @@
 
 {% block body %}
 
-<h1 class="text-center p-5">Expenses</h1><br>
-<div class="text-center">
-{% for expense in expenses %}
-
-    {{ expense.date }} - {{ expense.expensename }} - {{ expense.amount }} - {{ expense.category }}<br>
-
-{% endfor %}
+<div class="container">
+    <h1 class="text-center p-5">Expenses</h1><br>
+    {% for expense in expenses %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow mb-2 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            {{ expense.date }}
+                        </div>
+                        <div class="col-md-2">
+                            {{ expense.expensename }}
+                        </div>
+                        <div class="col-md-2">
+                            <span class="badge badge-primary">
+                                {{ expense.category }}
+                            </span>
+                        </div>
+                        <div class="col-md-2">
+                            $ {{ expense.amount }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 <br>
 <a href="/" class="p-2">Back</a>
-
 {% endblock %}
