@@ -35,6 +35,23 @@ def delete(id):
     return redirect('/expenses')
 
 
+@app.route('/edit', methods=['POST'])
+def edit():
+    id = request.form['id']
+    date = request.form['date']
+    expensename = request.form['expensename']
+    category = request.form['category']
+    amount = request.form['amount']
+    expense = Expense.query.filter_by(id=id).first()
+    expense.date = date
+    expense.expensename = expensename
+    expense.category = category
+    expense.amount = amount
+    db.session.commit()
+    return redirect('/expenses')
+
+
+
 @app.route('/updateexpense/<int:id>')
 def updateexpense(id):
     expense = Expense.query.filter_by(id=id).first()
