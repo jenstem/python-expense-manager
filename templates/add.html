@@ -1,1 +1,27 @@
-This is a template
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Expense Manager</title>
+</head>
+<body>
+    <h1>Add Expense</h1>
+    <form action="/addexpense" method="POST">
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date" required>
+        <label for="expensename">Name</label>
+        <input type="text" name="expensename" id="expensename" required>
+        <label for="amount">Amount</label>
+        <input type="number" name="amount" id="amount" required>
+        <label for="category">Category</label>
+        <select name="category" id="category" required>
+            <option value="food">Food</option>
+            <option value="transport">Transport</option>
+            <option value="shopping">Shopping</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="others">Others</option>
+        </select>
+        <button type="submit" value="Add">Add</button>
+    </form>
+    <a href="/">Back</a>
+</body>
+</html>
