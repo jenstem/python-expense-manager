@@ -61,7 +61,26 @@ def updateexpense(id):
 @app.route('/expenses')
 def expenses():
     expenses = Expense.query.all()
-    return render_template('expenses.html', expenses=expenses)
+    total = 0
+    t_food = 0
+    t_shopping = 0
+    t_transportation = 0
+    t_entertainment = 0
+    t_other = 0
+
+    for expense in expenses:
+        total += expense.amount
+        if(expense.category == 'Food'):
+            t_food += expense.amount
+        elif(expense.category == 'Shopping'):
+            t_shopping += expense.amount
+        elif(expense.category == 'Transportation'):
+            t_transportation += expense.amount
+        elif(expense.category == 'Entertainment'):
+            t_entertainment += expense.amount
+        elif(expense.category == 'Other'):
+            t_other += expense.amount
+    return render_template('expenses.html', expenses=expenses, total=total, t_food=t_food, t_shopping=t_shopping, t_transportation=t_transportation, t_entertainment=t_entertainment, t_other=t_other)
 
 
 @app.route('/addexpense', methods=['POST'])
@@ -70,7 +89,6 @@ def addexpense():
     expensename = request.form['expensename']
     amount = request.form['amount']
     category = request.form['category']
-    print(date, expensename, amount, category)
     expense = Expense(date=date, expensename=expensename, amount=amount, category=category)
     db.session.add(expense)
     db.session.commit()
