@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<h1 class="text-center p-5">Expenses</h1><br>
+<div class="text-center">
+{% for expense in expenses %}
+
+    {{ expense.date }} - {{ expense.expensename }} - {{ expense.amount }} - {{ expense.category }}<br>
+
+{% endfor %}
+</div>
+<br>
+<a href="/" class="p-2">Back</a>
+
+{% endblock %}
