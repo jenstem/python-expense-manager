@@ -3,7 +3,7 @@
 {% block body %}
 
 <div class="container">
-    <h1 class="text-center p-5">Expenses</h1><br>
+    <h3 class="text-center p-5">Expenses</h3><br>
     {% for expense in expenses %}
     <div class="row">
         <div class="col-md-12">
@@ -23,6 +23,12 @@
                         </div>
                         <div class="col-md-2">
                             $ {{ expense.amount }}
+                        </div>
+                        <div class="cold-md-2">
+                            <a href="#" class="btn btn-sm btn-success mr-2">Edit</a>
+                        </div>
+                        <div class="cold-md-2">
+                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
                         </div>
                     </div>
                 </div>
