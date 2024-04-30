@@ -1,27 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Expense Manager</title>
-</head>
-<body>
-    <h1>Add Expense</h1>
-    <form action="/addexpense" method="POST">
-        <label for="date">Date</label>
-        <input type="date" name="date" id="date" required>
-        <label for="expensename">Name</label>
-        <input type="text" name="expensename" id="expensename" required>
-        <label for="amount">Amount</label>
-        <input type="number" name="amount" id="amount" required>
-        <label for="category">Category</label>
-        <select name="category" id="category" required>
-            <option value="food">Food</option>
-            <option value="transport">Transport</option>
-            <option value="shopping">Shopping</option>
-            <option value="entertainment">Entertainment</option>
-            <option value="others">Others</option>
-        </select>
-        <button type="submit" value="Add">Add</button>
-    </form>
-    <a href="/">Back</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="text-center p-5">Add Expense</h3>
+            <form action="/addexpense" method="POST">
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input class="form-control" type="date" name="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="expensename">Name</label>
+                    <input class="form-control" type="text" name="expensename" id="expensename" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input class="form-control" type="number" name="amount" id="amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select class="form-control" name="category" id="category" required>
+                        <option value="food">Food</option>
+                        <option value="transport">Transport</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+                <button class="btn btn-danger" type="submit" value="Add">Add</button>
+            </form>
+            <br>
+            <a href="/">Back</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
