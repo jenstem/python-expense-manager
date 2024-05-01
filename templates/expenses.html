@@ -3,7 +3,64 @@
 {% block body %}
 
 <div class="container">
-    <h3 class="text-center p-5">Expenses</h3><br>
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="mt-5">Expense Breakdown</h3>
+            <div class="card shadow mb-2 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Total Expenses</h5>
+                        </div>
+                        <div class="col-md-6">
+                            $ {{ total }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Total Food</h5>
+                        </div>
+                        <div class="col-md-6">
+                            $ {{ t_food }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Total Shopping</h5>
+                        </div>
+                        <div class="col-md-6">
+                            $ {{ t_shopping }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Total Transportation</h5>
+                        </div>
+                        <div class="col-md-6">
+                            $ {{ t_transportation }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Total Entertainment</h5>
+                        </div>
+                        <div class="col-md-6">
+                            $ {{ t_entertainment }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Total Other</h5>
+                        </div>
+                        <div class="col-md-6">
+                            $ {{ t_other }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    <h3 class="text-center mt-5 mb-2">Expenses</h3><br>
     {% for expense in expenses %}
     <div class="row">
         <div class="col-md-12">
@@ -24,10 +81,10 @@
                         <div class="col-md-2">
                             $ {{ expense.amount }}
                         </div>
-                        <div class="cold-md-2">
+                        <div class="col-md-2">
                             <a href="updateexpense/{{expense.id}}" class="btn btn-sm btn-success mr-2">Edit</a>
                         </div>
-                        <div class="cold-md-2">
+                        <div class="col-md-2">
                             <a href="delete/{{expense.id}}" class="btn btn-sm btn-danger">Delete</a>
                         </div>
                     </div>
@@ -36,63 +93,5 @@
         </div>
     </div>
     {% endfor %}
-<div class="row">
-    <div class="col-md-6">
-        <h3 class="mt-5">Expense Breakdown</h3>
-        <div class="card shadow mb-2 bg-white rounded">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5>Total Expenses</h5>
-                    </div>
-                    <div class="col-md-6">
-                        $ {{ total }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5>Total Food</h5>
-                    </div>
-                    <div class="col-md-6">
-                        $ {{ t_food }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5>Total Shopping</h5>
-                    </div>
-                    <div class="col-md-6">
-                        $ {{ t_shopping }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5>Total Transportation</h5>
-                    </div>
-                    <div class="col-md-6">
-                        $ {{ t_transportation }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5>Total Entertainment</h5>
-                    </div>
-                    <div class="col-md-6">
-                        $ {{ t_entertainment }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5>Total Other</h5>
-                    </div>
-                    <div class="col-md-6">
-                        $ {{ t_other }}
-                    </div>
-                </div>
-            </div>
     </div>
-</div>
-
-
-</div>
-{% endblock %}
+    {% endblock %}
