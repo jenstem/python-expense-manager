@@ -72,7 +72,7 @@ Run the app:
 <a id='screenshots'></a>
 ## Screenshots/Gifs:
 
-<img src="https://github.com/jenstem/python-inventory-app/blob/main/inventory.gif" width=1000>
+<img src="https://github.com/jenstem/python-expense-manager/blob/main/budget-manager.gif" width=1000>
 *This is a GIF of the app*
 
 <a id='contact'></a>
