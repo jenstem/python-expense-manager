@@ -15,6 +15,9 @@ db = SQLAlchemy(app)
 
 
 class Expense(db.Model):
+    """
+    Model representing an expense record.
+    """
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.String(80), unique=False, nullable=False)
     expensename = db.Column(db.String(80), unique=False, nullable=False)
@@ -24,11 +27,17 @@ class Expense(db.Model):
 
 @app.route('/')
 def add():
+    """
+    Render the add expense form.
+    """
     return render_template('add.html')
 
 
 @app.route('/delete/<int:id>')
 def delete(id):
+    """
+    Delete an expense record by ID.
+    """
     expense = Expense.query.filter_by(id=id).first()
     db.session.delete(expense)
     db.session.commit()
@@ -37,6 +46,9 @@ def delete(id):
 
 @app.route('/edit', methods=['POST'])
 def edit():
+    """
+    Edit an existing expense record.
+    """
     id = request.form['id']
     date = request.form['date']
     expensename = request.form['expensename']
@@ -54,12 +66,18 @@ def edit():
 
 @app.route('/updateexpense/<int:id>')
 def updateexpense(id):
+    """
+    Render the update expense form for a specific expense.
+    """
     expense = Expense.query.filter_by(id=id).first()
     return render_template('updateexpense.html', expense=expense)
 
 
 @app.route('/expenses')
 def expenses():
+    """
+    Display all expenses and their total amounts categorized.
+    """
     expenses = Expense.query.all()
     total = 0
     t_food = 0
@@ -85,6 +103,9 @@ def expenses():
 
 @app.route('/addexpense', methods=['POST'])
 def addexpense():
+    """
+    Add a new expense record to the database.
+    """
     date = request.form['date']
     expensename = request.form['expensename']
     amount = request.form['amount']
